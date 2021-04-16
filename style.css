@@ -160,6 +160,7 @@
   right:0;
   bottom:0;
   background:rgba(46, 43, 43, 0.8);
+  transition:display 0.5s ease-in-out;
 }
 
 .modal {
