@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* , ::before , ::after {
+  font-family: 'Lato', sans-serif;
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width:1200px;
+  min-width:250px;
+  height:750px;
+  margin: 50px auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* ----------- PLAYER ---------------*/
+.player {
+  width:600px;
+  height:100%;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.player .title {
+  font-size: 45px;
+  color:rgba(47, 44, 44, 0.8);
+  margin-bottom:15px;
+}
+
+.player .score-global {
+  font-size: 65px;
+  color:rgba(209, 72, 72, 0.8);
+  font-weight: 300;
+}
+
+.player:nth-of-type(1){
+  background:rgba(195, 193, 183,0.4);
+}
+
+.player:nth-of-type(2){
+  background:rgba(195, 193, 183,0.1);
+}
+
+.current {
+  border-radius:5px;
+  width:100px;
+  height:100px;
+  margin:0 auto;
+  background:rgba(209, 72, 72, 0.8);
+  padding-top:10px;
+  color:rgba(47, 44, 44, 0.8);
+  box-shadow: 8px 10px 25px -8px rgba(44,38,38,0.79);
+}
+
+.score-current {
+  padding-top:20px;
+  font-size:30px;
+  color:white;
+}
+
+/* ----------- CONTAINER ELEMENT ---------------*/
+.container-element {
+  max-width:1200px;
+  min-width:250px;
+  position:absolute;
+  margin:50px auto;
+  width:300px;
+  height:750px;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  text-align:center;
+  font-size:25px;
+  color:rgba(47, 44, 44, 0.8);
+}
+
+/* ----------- Le DE ---------------*/
+.action-dice {
+  height:150px;
+  position:relative;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.dice {
+  border-radius:5px;
+  margin:0 auto;
+  background:rgba(243, 233, 233, 1);
+  color:rgba(47, 44, 44, 0.8);
+  box-shadow: 8px 10px 25px -8px rgba(44,38,38,0.79);
+  display: grid;
+  grid-template: repeat(3,40px) / repeat(3,40px);
+  width:120px;
+  height:120px;
+  position:relative;
+  align-items: center;
+}
+
+.cell{
+  margin:0 auto;
+  height:10px;
+  width:10px;
+  border-radius:50%;
+  background:rgba(209, 72, 72, 0.8);
+  opacity:0;
+  transition:opacity 0.3s ease-in-out;
+}
+
+.active {
+  opacity:1;
+  transition:opacity 0.3s ease-in-out;
+}
+
+/* ----------- ACTION BUTTON ---------------*/
+.new-game, .roll-dice, .hold {
+  cursor: pointer;
+}
+
+.new-game:before{
+  content:url(images/new.svg);
+  position:absolute;
+  top:71px;
+  left:36px;
+  cursor: pointer;
+}
+
+.roll-dice:before {
+  content:url(images/dice.svg);
+  position:absolute;
+  top:-11px;
+  left:44px;
+  cursor: pointer;
+}
+
+.hold:before {
+  content:url(images/hold.svg);
+  position:absolute;
+  top:122px;
+  left:69px;
+  cursor: pointer;
+}
+
+/* ------------- MODAL DE FIN WINNER --------------*/
+.overlay{
+  display:none;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(46, 43, 43, 0.8);
+}
+
+.modal {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding :20px 20px;
+  border-radius: 10px;
+}
+
+.modal-content {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+
+.modal-content .btn {
+  border-radius:5px;
+  background:rgba(209, 72, 72, 0.8);
+  color:white;
+  width:100px;
+  padding : 10px 10px;
+}
+
+.modal-content p {
+  color:rgba(47, 44, 44, 0.8);
+  padding : 10px 10px;
+  font-size:20px;
+  line-height:1.2;
+  pointer-events: none;
+}
+
+@media screen and (max-width:650px){
+
+  .container {
+    height:100%;
+    flex-direction:column;
+  }
+
+  .player{
+    height:300px;
+    width:100%;
+  }
+
+  .current {
+    padding-top:10px;
+  }
+
+  .container-element {
+    position:relative;
+    height:150px;
+    margin:10px auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    text-align:center;
+    font-size:25px;
+    color:rgba(47, 44, 44, 0.8);
+  }
+
+  .action-dice{
+    flex-direction: row;
+    margin-left:10px;
+    margin-top:10px;
+    width:100%;
+  }
+
+  .new-game{
+    margin-right:25px;
+    margin-bottom: 16px;
+  }
+  
+  .new-game:before{
+    position:relative;
+    display:inline-block;
+    top:0;
+    left:0;
+  }
+  
+  .roll-dice{
+    margin-right:10px;
+  }
+
+  .roll-dice:before {
+    position:relative;
+    display:inline-block;
+    top:0;
+    left:0;
+  }
+  
+  .hold:before {
+    position:relative;
+    display:inline-block;
+    top:0;
+    left:0;
+  }
+}
